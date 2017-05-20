@@ -1,0 +1,758 @@
+bash-4.3$ ./bin/spark-submit ~/work/python/Features.py 
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+17/05/20 14:20:19 WARN Utils: Your hostname, K7S5A resolves to a loopback address: 127.0.0.1; using 192.168.0.115 instead (on interface eth0)
+17/05/20 14:20:19 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+17/05/20 14:20:23 INFO SparkContext: Running Spark version 2.1.1
+17/05/20 14:20:26 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+17/05/20 14:20:27 INFO SecurityManager: Changing view acls to: bsrsharma
+17/05/20 14:20:27 INFO SecurityManager: Changing modify acls to: bsrsharma
+17/05/20 14:20:27 INFO SecurityManager: Changing view acls groups to: 
+17/05/20 14:20:27 INFO SecurityManager: Changing modify acls groups to: 
+17/05/20 14:20:27 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(bsrsharma); groups with view permissions: Set(); users  with modify permissions: Set(bsrsharma); groups with modify permissions: Set()
+17/05/20 14:20:30 INFO Utils: Successfully started service 'sparkDriver' on port 39341.
+17/05/20 14:20:30 INFO SparkEnv: Registering MapOutputTracker
+17/05/20 14:20:30 INFO SparkEnv: Registering BlockManagerMaster
+17/05/20 14:20:30 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+17/05/20 14:20:30 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+17/05/20 14:20:31 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-a292f1ff-1a58-4cf8-8c00-778dfe3780b7
+17/05/20 14:20:31 INFO MemoryStore: MemoryStore started with capacity 413.9 MB
+17/05/20 14:20:32 INFO SparkEnv: Registering OutputCommitCoordinator
+17/05/20 14:20:34 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+17/05/20 14:20:34 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://192.168.0.115:4040
+17/05/20 14:20:36 INFO SparkContext: Added file file:/home/bsrsharma/work/python/Features.py at file:/home/bsrsharma/work/python/Features.py with timestamp 1495315236389
+17/05/20 14:20:36 INFO Utils: Copying /home/bsrsharma/work/python/Features.py to /tmp/spark-9b7a39ff-4acd-47e5-8b04-3823d88a2007/userFiles-9ba6ef0b-b0bf-45c3-95d1-edc3bd8350cb/Features.py
+17/05/20 14:20:37 INFO Executor: Starting executor ID driver on host localhost
+17/05/20 14:20:37 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 33937.
+17/05/20 14:20:37 INFO NettyBlockTransferService: Server created on 192.168.0.115:33937
+17/05/20 14:20:37 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+17/05/20 14:20:37 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 192.168.0.115, 33937, None)
+17/05/20 14:20:37 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.0.115:33937 with 413.9 MB RAM, BlockManagerId(driver, 192.168.0.115, 33937, None)
+17/05/20 14:20:37 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 192.168.0.115, 33937, None)
+17/05/20 14:20:37 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 192.168.0.115, 33937, None)
+17/05/20 14:20:40 INFO SharedState: Warehouse path is 'file:/home/bsrsharma/spark-2.1.1-bin-hadoop2.7/spark-warehouse/'.
+17/05/20 14:20:43 WARN SizeEstimator: Failed to check whether UseCompressedOops is set; assuming yes
+17/05/20 14:20:44 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 212.2 KB, free 413.7 MB)
+17/05/20 14:20:45 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 22.9 KB, free 413.7 MB)
+17/05/20 14:20:45 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 192.168.0.115:33937 (size: 22.9 KB, free: 413.9 MB)
+17/05/20 14:20:45 INFO SparkContext: Created broadcast 0 from textFile at NativeMethodAccessorImpl.java:0
+17/05/20 14:20:46 INFO FileInputFormat: Total input paths to process : 1
+17/05/20 14:20:47 INFO SparkContext: Starting job: count at /home/bsrsharma/work/python/Features.py:63
+17/05/20 14:20:48 INFO DAGScheduler: Got job 0 (count at /home/bsrsharma/work/python/Features.py:63) with 1 output partitions
+17/05/20 14:20:48 INFO DAGScheduler: Final stage: ResultStage 0 (count at /home/bsrsharma/work/python/Features.py:63)
+17/05/20 14:20:48 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:20:48 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:20:48 INFO DAGScheduler: Submitting ResultStage 0 (PythonRDD[2] at count at /home/bsrsharma/work/python/Features.py:63), which has no missing parents
+17/05/20 14:20:48 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 6.4 KB, free 413.7 MB)
+17/05/20 14:20:48 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.8 KB, free 413.7 MB)
+17/05/20 14:20:48 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.0.115:33937 (size: 3.8 KB, free: 413.9 MB)
+17/05/20 14:20:48 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:996
+17/05/20 14:20:48 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (PythonRDD[2] at count at /home/bsrsharma/work/python/Features.py:63)
+17/05/20 14:20:48 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+17/05/20 14:20:49 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 6115 bytes)
+17/05/20 14:20:49 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+17/05/20 14:20:49 INFO Executor: Fetching file:/home/bsrsharma/work/python/Features.py with timestamp 1495315236389
+17/05/20 14:20:50 INFO Utils: /home/bsrsharma/work/python/Features.py has been previously copied to /tmp/spark-9b7a39ff-4acd-47e5-8b04-3823d88a2007/userFiles-9ba6ef0b-b0bf-45c3-95d1-edc3bd8350cb/Features.py
+17/05/20 14:20:51 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:20:51 INFO deprecation: mapred.tip.id is deprecated. Instead, use mapreduce.task.id
+17/05/20 14:20:51 INFO deprecation: mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+17/05/20 14:20:51 INFO deprecation: mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap
+17/05/20 14:20:51 INFO deprecation: mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+17/05/20 14:20:51 INFO deprecation: mapred.job.id is deprecated. Instead, use mapreduce.job.id
+17/05/20 14:20:54 INFO PythonRunner: Times: total = 3420, boot = 2632, init = 154, finish = 634
+17/05/20 14:20:55 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1813 bytes result sent to driver
+17/05/20 14:20:55 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 6221 ms on localhost (executor driver) (1/1)
+17/05/20 14:20:55 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+17/05/20 14:20:55 INFO DAGScheduler: ResultStage 0 (count at /home/bsrsharma/work/python/Features.py:63) finished in 6.595 s
+17/05/20 14:20:55 INFO DAGScheduler: Job 0 finished: count at /home/bsrsharma/work/python/Features.py:63, took 8.070477 s
+
+Read  10000  rows from  /home/bsrsharma/work/python/arran.csv 
+
+Print out a few rows read from file
+17/05/20 14:20:56 INFO SparkContext: Starting job: runJob at PythonRDD.scala:441
+17/05/20 14:20:56 INFO DAGScheduler: Got job 1 (runJob at PythonRDD.scala:441) with 1 output partitions
+17/05/20 14:20:56 INFO DAGScheduler: Final stage: ResultStage 1 (runJob at PythonRDD.scala:441)
+17/05/20 14:20:56 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:20:56 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:20:56 INFO DAGScheduler: Submitting ResultStage 1 (PythonRDD[3] at RDD at PythonRDD.scala:48), which has no missing parents
+17/05/20 14:20:56 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 5.4 KB, free 413.7 MB)
+17/05/20 14:20:56 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 3.3 KB, free 413.7 MB)
+17/05/20 14:20:56 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 192.168.0.115:33937 (size: 3.3 KB, free: 413.9 MB)
+17/05/20 14:20:56 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:996
+17/05/20 14:20:56 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (PythonRDD[3] at RDD at PythonRDD.scala:48)
+17/05/20 14:20:56 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
+17/05/20 14:20:56 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, PROCESS_LOCAL, 5960 bytes)
+17/05/20 14:20:56 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+17/05/20 14:20:56 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:20:56 INFO PythonRunner: Times: total = 40, boot = -1244, init = 1283, finish = 1
+17/05/20 14:20:56 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 2276 bytes result sent to driver
+17/05/20 14:20:56 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 265 ms on localhost (executor driver) (1/1)
+17/05/20 14:20:56 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+17/05/20 14:20:56 INFO DAGScheduler: ResultStage 1 (runJob at PythonRDD.scala:441) finished in 0.274 s
+17/05/20 14:20:56 INFO DAGScheduler: Job 1 finished: runJob at PythonRDD.scala:441, took 0.502400 s
+
+ [u'XE2DMPY6ELYGPXJZB9KA2LC,0.334370894593,3PLJWB9TN6PS9NMPHBYN9787CCJ69,1.08740026718,HMGYYVJLYW248K8ZKB,6.24391558094', u'TNR8ZG4QSVJ3V,7.54399895759,PHSL5VBBUZNNKCW4CSVURW5D3WYK4,4.27312260678,3KTQWWZJRHNQ,0.530835075509', u'DH3M3XKGX6RAUYLTMSYA,3.79282266925,L2TDDALSWFU8WB65QCDV6KU9WA36,4.35460221632,MUB3TPY4GWYL23Q6,2.46778423949', u'WPTBUVNY24NDUZLEE35XK55LRV2JU,-1.85426765841,NUYESJ9J44BHGG3QVWS5G,3.59663930058,ESA4KDSXLC4EPBJWVAS8CPYPAGKW,3.44376518762', u'JZRGNSYSKA43YL3NUX6D5,-2.56003725632,SY54QJXUVJD9ZKFMJABEM,2.10157475264,NKP3F6ACNKGJ47M87RDW,14.1002392148'] 
+
+17/05/20 14:20:56 INFO SparkContext: Starting job: collect at /home/bsrsharma/work/python/Features.py:75
+17/05/20 14:20:56 INFO DAGScheduler: Got job 2 (collect at /home/bsrsharma/work/python/Features.py:75) with 1 output partitions
+17/05/20 14:20:56 INFO DAGScheduler: Final stage: ResultStage 2 (collect at /home/bsrsharma/work/python/Features.py:75)
+17/05/20 14:20:56 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:20:56 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:20:56 INFO DAGScheduler: Submitting ResultStage 2 (PythonRDD[4] at collect at /home/bsrsharma/work/python/Features.py:75), which has no missing parents
+17/05/20 14:20:57 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 6.3 KB, free 413.7 MB)
+17/05/20 14:20:57 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 3.9 KB, free 413.7 MB)
+17/05/20 14:20:57 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 192.168.0.115:33937 (size: 3.9 KB, free: 413.9 MB)
+17/05/20 14:20:57 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:996
+17/05/20 14:20:57 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (PythonRDD[4] at collect at /home/bsrsharma/work/python/Features.py:75)
+17/05/20 14:20:57 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
+17/05/20 14:20:57 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 6117 bytes)
+17/05/20 14:20:57 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+17/05/20 14:20:57 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:20:57 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 192.168.0.115:33937 in memory (size: 3.3 KB, free: 413.9 MB)
+17/05/20 14:21:02 INFO PythonRunner: Times: total = 5441, boot = 23, init = 34, finish = 5384
+17/05/20 14:21:02 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 22158 bytes result sent to driver
+17/05/20 14:21:02 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 5755 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:02 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+17/05/20 14:21:02 INFO DAGScheduler: ResultStage 2 (collect at /home/bsrsharma/work/python/Features.py:75) finished in 5.752 s
+17/05/20 14:21:02 INFO DAGScheduler: Job 2 finished: collect at /home/bsrsharma/work/python/Features.py:75, took 5.990886 s
+number of fields in each row (first few):  [6, 6, 6, 6]
+Identified rectangular data set
+Inferring longest row(s) has  6  fields at row  0
+Short rows will be filtered out
+17/05/20 14:21:03 INFO SparkContext: Starting job: runJob at PythonRDD.scala:441
+17/05/20 14:21:03 INFO DAGScheduler: Got job 3 (runJob at PythonRDD.scala:441) with 1 output partitions
+17/05/20 14:21:03 INFO DAGScheduler: Final stage: ResultStage 3 (runJob at PythonRDD.scala:441)
+17/05/20 14:21:03 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:03 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:03 INFO DAGScheduler: Submitting ResultStage 3 (PythonRDD[5] at RDD at PythonRDD.scala:48), which has no missing parents
+17/05/20 14:21:03 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 7.0 KB, free 413.7 MB)
+17/05/20 14:21:03 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 192.168.0.115:33937 in memory (size: 3.9 KB, free: 413.9 MB)
+17/05/20 14:21:03 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 4.4 KB, free 413.7 MB)
+17/05/20 14:21:03 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 192.168.0.115:33937 (size: 4.4 KB, free: 413.9 MB)
+17/05/20 14:21:03 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:03 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (PythonRDD[5] at RDD at PythonRDD.scala:48)
+17/05/20 14:21:03 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks
+17/05/20 14:21:03 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, PROCESS_LOCAL, 5960 bytes)
+17/05/20 14:21:03 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
+17/05/20 14:21:03 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:08 INFO PythonRunner: Times: total = 5438, boot = -347, init = 373, finish = 5412
+17/05/20 14:21:09 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1693 bytes result sent to driver
+17/05/20 14:21:09 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 5623 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:09 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+17/05/20 14:21:09 INFO DAGScheduler: ResultStage 3 (runJob at PythonRDD.scala:441) finished in 5.630 s
+17/05/20 14:21:09 INFO DAGScheduler: Job 3 finished: runJob at PythonRDD.scala:441, took 5.788433 s
+
+ [] 
+
+17/05/20 14:21:09 INFO SparkContext: Starting job: runJob at PythonRDD.scala:441
+17/05/20 14:21:09 INFO DAGScheduler: Got job 4 (runJob at PythonRDD.scala:441) with 1 output partitions
+17/05/20 14:21:09 INFO DAGScheduler: Final stage: ResultStage 4 (runJob at PythonRDD.scala:441)
+17/05/20 14:21:09 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:09 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:09 INFO DAGScheduler: Submitting ResultStage 4 (PythonRDD[6] at RDD at PythonRDD.scala:48), which has no missing parents
+17/05/20 14:21:09 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 7.0 KB, free 413.7 MB)
+17/05/20 14:21:09 INFO BlockManagerInfo: Removed broadcast_4_piece0 on 192.168.0.115:33937 in memory (size: 4.4 KB, free: 413.9 MB)
+17/05/20 14:21:09 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 4.4 KB, free 413.7 MB)
+17/05/20 14:21:09 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on 192.168.0.115:33937 (size: 4.4 KB, free: 413.9 MB)
+17/05/20 14:21:09 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:09 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 4 (PythonRDD[6] at RDD at PythonRDD.scala:48)
+17/05/20 14:21:09 INFO TaskSchedulerImpl: Adding task set 4.0 with 1 tasks
+17/05/20 14:21:09 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 4, localhost, executor driver, partition 0, PROCESS_LOCAL, 5960 bytes)
+17/05/20 14:21:09 INFO Executor: Running task 0.0 in stage 4.0 (TID 4)
+17/05/20 14:21:09 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:09 INFO PythonRunner: Times: total = 50, boot = -377, init = 422, finish = 5
+17/05/20 14:21:09 INFO Executor: Finished task 0.0 in stage 4.0 (TID 4). 2403 bytes result sent to driver
+17/05/20 14:21:09 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 4) in 209 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:09 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+17/05/20 14:21:09 INFO DAGScheduler: ResultStage 4 (runJob at PythonRDD.scala:441) finished in 0.214 s
+17/05/20 14:21:09 INFO DAGScheduler: Job 4 finished: runJob at PythonRDD.scala:441, took 0.391390 s
+
+ [u'XE2DMPY6ELYGPXJZB9KA2LC,0.334370894593,3PLJWB9TN6PS9NMPHBYN9787CCJ69,1.08740026718,HMGYYVJLYW248K8ZKB,6.24391558094,No Data', u'TNR8ZG4QSVJ3V,7.54399895759,PHSL5VBBUZNNKCW4CSVURW5D3WYK4,4.27312260678,3KTQWWZJRHNQ,0.530835075509,No Data', u'DH3M3XKGX6RAUYLTMSYA,3.79282266925,L2TDDALSWFU8WB65QCDV6KU9WA36,4.35460221632,MUB3TPY4GWYL23Q6,2.46778423949,No Data', u'WPTBUVNY24NDUZLEE35XK55LRV2JU,-1.85426765841,NUYESJ9J44BHGG3QVWS5G,3.59663930058,ESA4KDSXLC4EPBJWVAS8CPYPAGKW,3.44376518762,No Data', u'JZRGNSYSKA43YL3NUX6D5,-2.56003725632,SY54QJXUVJD9ZKFMJABEM,2.10157475264,NKP3F6ACNKGJ47M87RDW,14.1002392148,No Data'] 
+
+17/05/20 14:21:09 INFO SparkContext: Starting job: runJob at PythonRDD.scala:441
+17/05/20 14:21:09 INFO DAGScheduler: Got job 5 (runJob at PythonRDD.scala:441) with 1 output partitions
+17/05/20 14:21:09 INFO DAGScheduler: Final stage: ResultStage 5 (runJob at PythonRDD.scala:441)
+17/05/20 14:21:09 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:09 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:09 INFO DAGScheduler: Submitting ResultStage 5 (PythonRDD[7] at RDD at PythonRDD.scala:48), which has no missing parents
+17/05/20 14:21:09 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 7.0 KB, free 413.7 MB)
+17/05/20 14:21:10 INFO BlockManagerInfo: Removed broadcast_5_piece0 on 192.168.0.115:33937 in memory (size: 4.4 KB, free: 413.9 MB)
+17/05/20 14:21:10 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 4.4 KB, free 413.7 MB)
+17/05/20 14:21:10 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on 192.168.0.115:33937 (size: 4.4 KB, free: 413.9 MB)
+17/05/20 14:21:10 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:10 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 5 (PythonRDD[7] at RDD at PythonRDD.scala:48)
+17/05/20 14:21:10 INFO TaskSchedulerImpl: Adding task set 5.0 with 1 tasks
+17/05/20 14:21:10 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 5, localhost, executor driver, partition 0, PROCESS_LOCAL, 5960 bytes)
+17/05/20 14:21:10 INFO Executor: Running task 0.0 in stage 5.0 (TID 5)
+17/05/20 14:21:10 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:10 INFO PythonRunner: Times: total = 58, boot = 23, init = 30, finish = 5
+17/05/20 14:21:10 INFO Executor: Finished task 0.0 in stage 5.0 (TID 5). 1780 bytes result sent to driver
+17/05/20 14:21:10 INFO DAGScheduler: ResultStage 5 (runJob at PythonRDD.scala:441) finished in 0.197 s
+17/05/20 14:21:10 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 5) in 196 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:10 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool 
+17/05/20 14:21:10 INFO DAGScheduler: Job 5 finished: runJob at PythonRDD.scala:441, took 0.344258 s
+Removed the First row as Header
+17/05/20 14:21:10 INFO BlockManagerInfo: Removed broadcast_6_piece0 on 192.168.0.115:33937 in memory (size: 4.4 KB, free: 413.9 MB)
+17/05/20 14:21:10 INFO SparkContext: Starting job: count at /home/bsrsharma/work/python/Features.py:113
+17/05/20 14:21:10 INFO DAGScheduler: Got job 6 (count at /home/bsrsharma/work/python/Features.py:113) with 1 output partitions
+17/05/20 14:21:10 INFO DAGScheduler: Final stage: ResultStage 6 (count at /home/bsrsharma/work/python/Features.py:113)
+17/05/20 14:21:10 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:10 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:10 INFO DAGScheduler: Submitting ResultStage 6 (PythonRDD[8] at count at /home/bsrsharma/work/python/Features.py:113), which has no missing parents
+17/05/20 14:21:10 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 8.2 KB, free 413.7 MB)
+17/05/20 14:21:10 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 5.0 KB, free 413.7 MB)
+17/05/20 14:21:10 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on 192.168.0.115:33937 (size: 5.0 KB, free: 413.9 MB)
+17/05/20 14:21:10 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:10 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 6 (PythonRDD[8] at count at /home/bsrsharma/work/python/Features.py:113)
+17/05/20 14:21:10 INFO TaskSchedulerImpl: Adding task set 6.0 with 1 tasks
+17/05/20 14:21:10 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 6, localhost, executor driver, partition 0, PROCESS_LOCAL, 6117 bytes)
+17/05/20 14:21:10 INFO Executor: Running task 0.0 in stage 6.0 (TID 6)
+17/05/20 14:21:10 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:15 INFO PythonRunner: Times: total = 4760, boot = 22, init = 26, finish = 4712
+17/05/20 14:21:15 INFO Executor: Finished task 0.0 in stage 6.0 (TID 6). 1726 bytes result sent to driver
+17/05/20 14:21:15 INFO DAGScheduler: ResultStage 6 (count at /home/bsrsharma/work/python/Features.py:113) finished in 4.896 s
+17/05/20 14:21:15 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 6) in 4889 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:15 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool 
+17/05/20 14:21:15 INFO DAGScheduler: Job 6 finished: count at /home/bsrsharma/work/python/Features.py:113, took 5.076047 s
+number of rows =  9999
+
+print out a few vectors after converting from strings
+
+17/05/20 14:21:16 INFO SparkContext: Starting job: runJob at PythonRDD.scala:441
+17/05/20 14:21:16 INFO DAGScheduler: Got job 7 (runJob at PythonRDD.scala:441) with 1 output partitions
+17/05/20 14:21:16 INFO DAGScheduler: Final stage: ResultStage 7 (runJob at PythonRDD.scala:441)
+17/05/20 14:21:16 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:16 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:16 INFO DAGScheduler: Submitting ResultStage 7 (PythonRDD[9] at RDD at PythonRDD.scala:48), which has no missing parents
+17/05/20 14:21:16 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 8.0 KB, free 413.7 MB)
+17/05/20 14:21:16 INFO BlockManagerInfo: Removed broadcast_7_piece0 on 192.168.0.115:33937 in memory (size: 5.0 KB, free: 413.9 MB)
+17/05/20 14:21:16 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 5.0 KB, free 413.7 MB)
+17/05/20 14:21:16 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on 192.168.0.115:33937 (size: 5.0 KB, free: 413.9 MB)
+17/05/20 14:21:16 INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:16 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 7 (PythonRDD[9] at RDD at PythonRDD.scala:48)
+17/05/20 14:21:16 INFO TaskSchedulerImpl: Adding task set 7.0 with 1 tasks
+17/05/20 14:21:16 INFO TaskSetManager: Starting task 0.0 in stage 7.0 (TID 7, localhost, executor driver, partition 0, PROCESS_LOCAL, 5960 bytes)
+17/05/20 14:21:16 INFO Executor: Running task 0.0 in stage 7.0 (TID 7)
+17/05/20 14:21:16 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:17 INFO PythonRunner: Times: total = 701, boot = -748, init = 1436, finish = 13
+17/05/20 14:21:17 INFO Executor: Finished task 0.0 in stage 7.0 (TID 7). 2184 bytes result sent to driver
+17/05/20 14:21:17 INFO TaskSetManager: Finished task 0.0 in stage 7.0 (TID 7) in 823 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:17 INFO TaskSchedulerImpl: Removed TaskSet 7.0, whose tasks have all completed, from pool 
+17/05/20 14:21:17 INFO DAGScheduler: ResultStage 7 (runJob at PythonRDD.scala:441) finished in 0.821 s
+17/05/20 14:21:17 INFO DAGScheduler: Job 7 finished: runJob at PythonRDD.scala:441, took 1.003366 s
+[DenseVector([0.0, 7.544, 0.0, 4.2731, 0.0, 0.5308, 0.0]), DenseVector([0.0, 3.7928, 0.0, 4.3546, 0.0, 2.4678, 0.0]), DenseVector([0.0, -1.8543, 0.0, 3.5966, 0.0, 3.4438, 0.0]), DenseVector([0.0, -2.56, 0.0, 2.1016, 0.0, 14.1002, 0.0]), DenseVector([0.0, -0.8118, 0.0, 4.4671, 0.0, 5.8217, 0.0])]
+17/05/20 14:21:18 INFO BlockManagerInfo: Removed broadcast_8_piece0 on 192.168.0.115:33937 in memory (size: 5.0 KB, free: 413.9 MB)
+17/05/20 14:21:19 INFO SparkContext: Starting job: treeAggregate at RowMatrix.scala:419
+17/05/20 14:21:19 INFO DAGScheduler: Got job 8 (treeAggregate at RowMatrix.scala:419) with 1 output partitions
+17/05/20 14:21:19 INFO DAGScheduler: Final stage: ResultStage 8 (treeAggregate at RowMatrix.scala:419)
+17/05/20 14:21:19 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:19 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:19 INFO DAGScheduler: Submitting ResultStage 8 (MapPartitionsRDD[12] at treeAggregate at RowMatrix.scala:419), which has no missing parents
+17/05/20 14:21:19 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 9.5 KB, free 413.7 MB)
+17/05/20 14:21:19 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 5.7 KB, free 413.7 MB)
+17/05/20 14:21:19 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on 192.168.0.115:33937 (size: 5.7 KB, free: 413.9 MB)
+17/05/20 14:21:19 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:19 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 8 (MapPartitionsRDD[12] at treeAggregate at RowMatrix.scala:419)
+17/05/20 14:21:19 INFO TaskSchedulerImpl: Adding task set 8.0 with 1 tasks
+17/05/20 14:21:19 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 8, localhost, executor driver, partition 0, PROCESS_LOCAL, 6051 bytes)
+17/05/20 14:21:19 INFO Executor: Running task 0.0 in stage 8.0 (TID 8)
+17/05/20 14:21:19 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:27 INFO PythonRunner: Times: total = 8113, boot = 20, init = 673, finish = 7420
+17/05/20 14:21:27 INFO Executor: Finished task 0.0 in stage 8.0 (TID 8). 2718 bytes result sent to driver
+17/05/20 14:21:27 INFO DAGScheduler: ResultStage 8 (treeAggregate at RowMatrix.scala:419) finished in 8.355 s
+17/05/20 14:21:27 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 8) in 8348 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:27 INFO TaskSchedulerImpl: Removed TaskSet 8.0, whose tasks have all completed, from pool 
+17/05/20 14:21:27 INFO DAGScheduler: Job 8 finished: treeAggregate at RowMatrix.scala:419, took 8.538401 s
+
+print out summary statistics, for each column
+
+summary.mean
+[ 0.          1.15906898  0.          3.43367245  0.          5.6479114   0.        ]
+summary.variance
+[  0.           7.84290276   0.           9.28486704   0.          10.78399782
+   0.        ]
+summary.count
+9999
+summary.max
+[  0.          11.57788619   0.          14.54397238   0.          18.63046195
+   0.        ]
+summary.min
+[ 0.         -9.87107443  0.         -8.59433703  0.         -8.25162236
+  0.        ]
+summary.normL1
+[     0.          24304.8725375       0.          38351.25365321      0.
+  57650.49270954      0.        ]
+summary.normL2
+[   0.          303.06172205    0.          459.04180122    0.
+  653.28060049    0.        ]
+summary.numnonZeros
+[    0.  9999.     0.  9999.     0.  9999.     0.]
+
+Inferring column data types:
+String,Float,String,Float,String,Float,String,
+
+
+17/05/20 14:21:31 INFO SparkContext: Starting job: runJob at PythonRDD.scala:441
+17/05/20 14:21:31 INFO DAGScheduler: Got job 9 (runJob at PythonRDD.scala:441) with 1 output partitions
+17/05/20 14:21:31 INFO DAGScheduler: Final stage: ResultStage 9 (runJob at PythonRDD.scala:441)
+17/05/20 14:21:31 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:31 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:31 INFO DAGScheduler: Submitting ResultStage 9 (PythonRDD[13] at RDD at PythonRDD.scala:48), which has no missing parents
+17/05/20 14:21:31 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 8.1 KB, free 413.7 MB)
+17/05/20 14:21:31 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 5.1 KB, free 413.7 MB)
+17/05/20 14:21:31 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on 192.168.0.115:33937 (size: 5.1 KB, free: 413.9 MB)
+17/05/20 14:21:31 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:31 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 9 (PythonRDD[13] at RDD at PythonRDD.scala:48)
+17/05/20 14:21:31 INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks
+17/05/20 14:21:31 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 9, localhost, executor driver, partition 0, PROCESS_LOCAL, 5960 bytes)
+17/05/20 14:21:31 INFO Executor: Running task 0.0 in stage 9.0 (TID 9)
+17/05/20 14:21:31 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:32 INFO PythonRunner: Times: total = 48, boot = -4029, init = 4062, finish = 15
+17/05/20 14:21:32 INFO Executor: Finished task 0.0 in stage 9.0 (TID 9). 1951 bytes result sent to driver
+17/05/20 14:21:32 INFO DAGScheduler: ResultStage 9 (runJob at PythonRDD.scala:441) finished in 0.165 s
+17/05/20 14:21:32 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 9) in 166 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:32 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool 
+17/05/20 14:21:32 INFO DAGScheduler: Job 9 finished: runJob at PythonRDD.scala:441, took 0.364483 s
+[DenseVector([7.544, 4.2731, 0.5308]), DenseVector([3.7928, 4.3546, 2.4678]), DenseVector([-1.8543, 3.5966, 3.4438]), DenseVector([-2.56, 2.1016, 14.1002]), DenseVector([-0.8118, 4.4671, 5.8217])]
+17/05/20 14:21:32 INFO BlockManagerInfo: Removed broadcast_10_piece0 on 192.168.0.115:33937 in memory (size: 5.1 KB, free: 413.9 MB)
+17/05/20 14:21:32 INFO SparkContext: Starting job: first at RowMatrix.scala:61
+17/05/20 14:21:32 INFO DAGScheduler: Got job 10 (first at RowMatrix.scala:61) with 1 output partitions
+17/05/20 14:21:32 INFO DAGScheduler: Final stage: ResultStage 10 (first at RowMatrix.scala:61)
+17/05/20 14:21:32 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:32 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:32 INFO DAGScheduler: Submitting ResultStage 10 (MapPartitionsRDD[15] at mapPartitions at PythonMLLibAPI.scala:1345), which has no missing parents
+17/05/20 14:21:32 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 8.7 KB, free 413.7 MB)
+17/05/20 14:21:32 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 5.4 KB, free 413.7 MB)
+17/05/20 14:21:32 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on 192.168.0.115:33937 (size: 5.4 KB, free: 413.9 MB)
+17/05/20 14:21:32 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:32 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 10 (MapPartitionsRDD[15] at mapPartitions at PythonMLLibAPI.scala:1345)
+17/05/20 14:21:32 INFO TaskSchedulerImpl: Adding task set 10.0 with 1 tasks
+17/05/20 14:21:32 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 10, localhost, executor driver, partition 0, PROCESS_LOCAL, 6043 bytes)
+17/05/20 14:21:32 INFO Executor: Running task 0.0 in stage 10.0 (TID 10)
+17/05/20 14:21:32 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:35 INFO Executor: Finished task 0.0 in stage 10.0 (TID 10). 1753 bytes result sent to driver
+17/05/20 14:21:35 INFO DAGScheduler: ResultStage 10 (first at RowMatrix.scala:61) finished in 2.886 s
+17/05/20 14:21:35 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 10) in 2886 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:35 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool 
+17/05/20 14:21:35 INFO DAGScheduler: Job 10 finished: first at RowMatrix.scala:61, took 3.023899 s
+17/05/20 14:21:35 INFO SparkContext: Starting job: treeAggregate at RowMatrix.scala:419
+17/05/20 14:21:35 INFO DAGScheduler: Got job 11 (treeAggregate at RowMatrix.scala:419) with 1 output partitions
+17/05/20 14:21:35 INFO DAGScheduler: Final stage: ResultStage 11 (treeAggregate at RowMatrix.scala:419)
+17/05/20 14:21:35 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:35 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:35 INFO DAGScheduler: Submitting ResultStage 11 (MapPartitionsRDD[16] at treeAggregate at RowMatrix.scala:419), which has no missing parents
+17/05/20 14:21:35 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 9.6 KB, free 413.6 MB)
+17/05/20 14:21:35 INFO BlockManagerInfo: Removed broadcast_11_piece0 on 192.168.0.115:33937 in memory (size: 5.4 KB, free: 413.9 MB)
+17/05/20 14:21:36 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 5.8 KB, free 413.7 MB)
+17/05/20 14:21:36 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on 192.168.0.115:33937 (size: 5.8 KB, free: 413.9 MB)
+17/05/20 14:21:36 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:36 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 11 (MapPartitionsRDD[16] at treeAggregate at RowMatrix.scala:419)
+17/05/20 14:21:36 INFO TaskSchedulerImpl: Adding task set 11.0 with 1 tasks
+17/05/20 14:21:36 INFO TaskSetManager: Starting task 0.0 in stage 11.0 (TID 11, localhost, executor driver, partition 0, PROCESS_LOCAL, 6051 bytes)
+17/05/20 14:21:36 INFO Executor: Running task 0.0 in stage 11.0 (TID 11)
+17/05/20 14:21:36 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:45 INFO PythonRunner: Times: total = 8787, boot = 27, init = 929, finish = 7831
+17/05/20 14:21:45 INFO Executor: Finished task 0.0 in stage 11.0 (TID 11). 2462 bytes result sent to driver
+17/05/20 14:21:45 INFO TaskSetManager: Finished task 0.0 in stage 11.0 (TID 11) in 9059 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:45 INFO TaskSchedulerImpl: Removed TaskSet 11.0, whose tasks have all completed, from pool 
+17/05/20 14:21:45 INFO DAGScheduler: ResultStage 11 (treeAggregate at RowMatrix.scala:419) finished in 9.065 s
+17/05/20 14:21:45 INFO DAGScheduler: Job 11 finished: treeAggregate at RowMatrix.scala:419, took 9.315693 s
+17/05/20 14:21:48 INFO SparkContext: Starting job: treeAggregate at RowMatrix.scala:122
+17/05/20 14:21:48 INFO DAGScheduler: Got job 12 (treeAggregate at RowMatrix.scala:122) with 1 output partitions
+17/05/20 14:21:48 INFO DAGScheduler: Final stage: ResultStage 12 (treeAggregate at RowMatrix.scala:122)
+17/05/20 14:21:48 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:21:48 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:21:48 INFO DAGScheduler: Submitting ResultStage 12 (MapPartitionsRDD[17] at treeAggregate at RowMatrix.scala:122), which has no missing parents
+17/05/20 14:21:48 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 9.5 KB, free 413.6 MB)
+17/05/20 14:21:48 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 5.8 KB, free 413.6 MB)
+17/05/20 14:21:48 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on 192.168.0.115:33937 (size: 5.8 KB, free: 413.9 MB)
+17/05/20 14:21:48 INFO SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:996
+17/05/20 14:21:48 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 12 (MapPartitionsRDD[17] at treeAggregate at RowMatrix.scala:122)
+17/05/20 14:21:48 INFO TaskSchedulerImpl: Adding task set 12.0 with 1 tasks
+17/05/20 14:21:48 INFO TaskSetManager: Starting task 0.0 in stage 12.0 (TID 12, localhost, executor driver, partition 0, PROCESS_LOCAL, 6051 bytes)
+17/05/20 14:21:48 INFO Executor: Running task 0.0 in stage 12.0 (TID 12)
+17/05/20 14:21:48 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:21:51 WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
+17/05/20 14:21:51 WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
+17/05/20 14:21:56 INFO PythonRunner: Times: total = 7707, boot = -3498, init = 3543, finish = 7662
+17/05/20 14:21:56 INFO Executor: Finished task 0.0 in stage 12.0 (TID 12). 2017 bytes result sent to driver
+17/05/20 14:21:56 INFO DAGScheduler: ResultStage 12 (treeAggregate at RowMatrix.scala:122) finished in 7.989 s
+17/05/20 14:21:56 INFO TaskSetManager: Finished task 0.0 in stage 12.0 (TID 12) in 7983 ms on localhost (executor driver) (1/1)
+17/05/20 14:21:56 INFO TaskSchedulerImpl: Removed TaskSet 12.0, whose tasks have all completed, from pool 
+17/05/20 14:21:56 INFO DAGScheduler: Job 12 finished: treeAggregate at RowMatrix.scala:122, took 8.196248 s
+17/05/20 14:21:58 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 192.168.0.115:33937 in memory (size: 3.8 KB, free: 413.9 MB)
+17/05/20 14:21:58 INFO BlockManagerInfo: Removed broadcast_13_piece0 on 192.168.0.115:33937 in memory (size: 5.8 KB, free: 413.9 MB)
+17/05/20 14:21:58 INFO BlockManagerInfo: Removed broadcast_9_piece0 on 192.168.0.115:33937 in memory (size: 5.7 KB, free: 413.9 MB)
+17/05/20 14:21:58 INFO BlockManagerInfo: Removed broadcast_12_piece0 on 192.168.0.115:33937 in memory (size: 5.8 KB, free: 413.9 MB)
+Computing Correlation Matrix on all columns
+Printing out column names that have correlation coefficient > 0.5 or < -0.5
+17/05/20 14:22:00 INFO SparkContext: Starting job: collect at /home/bsrsharma/work/python/Features.py:193
+17/05/20 14:22:00 INFO DAGScheduler: Got job 13 (collect at /home/bsrsharma/work/python/Features.py:193) with 1 output partitions
+17/05/20 14:22:00 INFO DAGScheduler: Final stage: ResultStage 13 (collect at /home/bsrsharma/work/python/Features.py:193)
+17/05/20 14:22:00 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:22:00 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:22:00 INFO DAGScheduler: Submitting ResultStage 13 (PythonRDD[18] at collect at /home/bsrsharma/work/python/Features.py:193), which has no missing parents
+17/05/20 14:22:00 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 7.8 KB, free 413.7 MB)
+17/05/20 14:22:00 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 4.9 KB, free 413.7 MB)
+17/05/20 14:22:00 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on 192.168.0.115:33937 (size: 4.9 KB, free: 413.9 MB)
+17/05/20 14:22:00 INFO SparkContext: Created broadcast 14 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:00 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 13 (PythonRDD[18] at collect at /home/bsrsharma/work/python/Features.py:193)
+17/05/20 14:22:00 INFO TaskSchedulerImpl: Adding task set 13.0 with 1 tasks
+17/05/20 14:22:00 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 13, localhost, executor driver, partition 0, PROCESS_LOCAL, 6119 bytes)
+17/05/20 14:22:00 INFO Executor: Running task 0.0 in stage 13.0 (TID 13)
+17/05/20 14:22:01 INFO HadoopRDD: Input split: file:/home/bsrsharma/work/python/arran.csv:0+1069481
+17/05/20 14:22:08 INFO PythonRunner: Times: total = 7099, boot = -4612, init = 4642, finish = 7069
+17/05/20 14:22:08 INFO Executor: Finished task 0.0 in stage 13.0 (TID 13). 348158 bytes result sent to driver
+17/05/20 14:22:08 INFO DAGScheduler: ResultStage 13 (collect at /home/bsrsharma/work/python/Features.py:193) finished in 7.578 s
+17/05/20 14:22:08 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 13) in 7575 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:08 INFO TaskSchedulerImpl: Removed TaskSet 13.0, whose tasks have all completed, from pool 
+17/05/20 14:22:08 INFO DAGScheduler: Job 13 finished: collect at /home/bsrsharma/work/python/Features.py:193, took 7.752386 s
+Computing Pearson's independence test on the input contingency matrix using chi-square test
+Chi squared test summary:
+method: pearson
+degrees of freedom = 19996 
+statistic = 30129.652112820528 
+pValue = 0.0 
+Very strong presumption against null hypothesis: the occurrence of the outcomes is statistically independent..
+
+Checking if column data is normally distributed using Kolmogorov-Smirnov test
+0.0 9998.0 1.15906898158 2.80051830167
+17/05/20 14:22:12 INFO SparkContext: Starting job: count at KolmogorovSmirnovTest.scala:67
+17/05/20 14:22:12 INFO DAGScheduler: Got job 14 (count at KolmogorovSmirnovTest.scala:67) with 1 output partitions
+17/05/20 14:22:12 INFO DAGScheduler: Final stage: ResultStage 14 (count at KolmogorovSmirnovTest.scala:67)
+17/05/20 14:22:12 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:22:12 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:22:12 INFO DAGScheduler: Submitting ResultStage 14 (MapPartitionsRDD[21] at mapPartitions at PythonMLLibAPI.scala:1345), which has no missing parents
+17/05/20 14:22:12 INFO MemoryStore: Block broadcast_15 stored as values in memory (estimated size 4.4 KB, free 413.7 MB)
+17/05/20 14:22:12 INFO MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 2.8 KB, free 413.7 MB)
+17/05/20 14:22:12 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on 192.168.0.115:33937 (size: 2.8 KB, free: 413.9 MB)
+17/05/20 14:22:12 INFO SparkContext: Created broadcast 15 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:12 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 14 (MapPartitionsRDD[21] at mapPartitions at PythonMLLibAPI.scala:1345)
+17/05/20 14:22:12 INFO TaskSchedulerImpl: Adding task set 14.0 with 1 tasks
+17/05/20 14:22:12 INFO TaskSetManager: Starting task 0.0 in stage 14.0 (TID 14, localhost, executor driver, partition 0, PROCESS_LOCAL, 96099 bytes)
+17/05/20 14:22:12 INFO Executor: Running task 0.0 in stage 14.0 (TID 14)
+17/05/20 14:22:12 INFO PythonRunner: Times: total = 71, boot = -4385, init = 4396, finish = 60
+17/05/20 14:22:13 INFO Executor: Finished task 0.0 in stage 14.0 (TID 14). 1680 bytes result sent to driver
+17/05/20 14:22:13 INFO DAGScheduler: ResultStage 14 (count at KolmogorovSmirnovTest.scala:67) finished in 0.347 s
+17/05/20 14:22:13 INFO TaskSetManager: Finished task 0.0 in stage 14.0 (TID 14) in 352 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:13 INFO TaskSchedulerImpl: Removed TaskSet 14.0, whose tasks have all completed, from pool 
+17/05/20 14:22:13 INFO DAGScheduler: Job 14 finished: count at KolmogorovSmirnovTest.scala:67, took 0.584732 s
+17/05/20 14:22:13 INFO BlockManagerInfo: Removed broadcast_15_piece0 on 192.168.0.115:33937 in memory (size: 2.8 KB, free: 413.9 MB)
+17/05/20 14:22:13 INFO SparkContext: Starting job: collect at KolmogorovSmirnovTest.scala:71
+17/05/20 14:22:13 INFO DAGScheduler: Registering RDD 22 (sortBy at KolmogorovSmirnovTest.scala:68)
+17/05/20 14:22:13 INFO DAGScheduler: Got job 15 (collect at KolmogorovSmirnovTest.scala:71) with 1 output partitions
+17/05/20 14:22:13 INFO DAGScheduler: Final stage: ResultStage 16 (collect at KolmogorovSmirnovTest.scala:71)
+17/05/20 14:22:13 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 15)
+17/05/20 14:22:13 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 15)
+17/05/20 14:22:13 INFO DAGScheduler: Submitting ShuffleMapStage 15 (MapPartitionsRDD[22] at sortBy at KolmogorovSmirnovTest.scala:68), which has no missing parents
+17/05/20 14:22:13 INFO MemoryStore: Block broadcast_16 stored as values in memory (estimated size 6.1 KB, free 413.7 MB)
+17/05/20 14:22:13 INFO MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 3.6 KB, free 413.7 MB)
+17/05/20 14:22:13 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on 192.168.0.115:33937 (size: 3.6 KB, free: 413.9 MB)
+17/05/20 14:22:13 INFO SparkContext: Created broadcast 16 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:14 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 15 (MapPartitionsRDD[22] at sortBy at KolmogorovSmirnovTest.scala:68)
+17/05/20 14:22:14 INFO TaskSchedulerImpl: Adding task set 15.0 with 1 tasks
+17/05/20 14:22:14 INFO TaskSetManager: Starting task 0.0 in stage 15.0 (TID 15, localhost, executor driver, partition 0, PROCESS_LOCAL, 96173 bytes)
+17/05/20 14:22:14 INFO Executor: Running task 0.0 in stage 15.0 (TID 15)
+17/05/20 14:22:14 INFO PythonRunner: Times: total = 81, boot = -1018, init = 1032, finish = 67
+17/05/20 14:22:14 INFO Executor: Finished task 0.0 in stage 15.0 (TID 15). 2043 bytes result sent to driver
+17/05/20 14:22:14 INFO TaskSetManager: Finished task 0.0 in stage 15.0 (TID 15) in 961 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:14 INFO TaskSchedulerImpl: Removed TaskSet 15.0, whose tasks have all completed, from pool 
+17/05/20 14:22:14 INFO DAGScheduler: ShuffleMapStage 15 (sortBy at KolmogorovSmirnovTest.scala:68) finished in 0.967 s
+17/05/20 14:22:14 INFO DAGScheduler: looking for newly runnable stages
+17/05/20 14:22:15 INFO DAGScheduler: running: Set()
+17/05/20 14:22:15 INFO DAGScheduler: waiting: Set(ResultStage 16)
+17/05/20 14:22:15 INFO DAGScheduler: failed: Set()
+17/05/20 14:22:15 INFO DAGScheduler: Submitting ResultStage 16 (MapPartitionsRDD[25] at mapPartitions at KolmogorovSmirnovTest.scala:68), which has no missing parents
+17/05/20 14:22:15 INFO MemoryStore: Block broadcast_17 stored as values in memory (estimated size 19.9 KB, free 413.7 MB)
+17/05/20 14:22:15 INFO MemoryStore: Block broadcast_17_piece0 stored as bytes in memory (estimated size 7.9 KB, free 413.6 MB)
+17/05/20 14:22:15 INFO BlockManagerInfo: Added broadcast_17_piece0 in memory on 192.168.0.115:33937 (size: 7.9 KB, free: 413.9 MB)
+17/05/20 14:22:15 INFO SparkContext: Created broadcast 17 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:15 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 16 (MapPartitionsRDD[25] at mapPartitions at KolmogorovSmirnovTest.scala:68)
+17/05/20 14:22:15 INFO TaskSchedulerImpl: Adding task set 16.0 with 1 tasks
+17/05/20 14:22:15 INFO TaskSetManager: Starting task 0.0 in stage 16.0 (TID 16, localhost, executor driver, partition 0, ANY, 5805 bytes)
+17/05/20 14:22:15 INFO Executor: Running task 0.0 in stage 16.0 (TID 16)
+17/05/20 14:22:15 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+17/05/20 14:22:15 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 97 ms
+17/05/20 14:22:18 INFO Executor: Finished task 0.0 in stage 16.0 (TID 16). 2061 bytes result sent to driver
+17/05/20 14:22:18 INFO TaskSetManager: Finished task 0.0 in stage 16.0 (TID 16) in 3190 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:18 INFO TaskSchedulerImpl: Removed TaskSet 16.0, whose tasks have all completed, from pool 
+17/05/20 14:22:18 INFO DAGScheduler: ResultStage 16 (collect at KolmogorovSmirnovTest.scala:71) finished in 3.194 s
+17/05/20 14:22:18 INFO DAGScheduler: Job 15 finished: collect at KolmogorovSmirnovTest.scala:71, took 4.846061 s
+Kolmogorov-Smirnov test summary:
+degrees of freedom = 0 
+statistic = 0.9987456949896243 
+pValue = 3.845022078508009E-10 
+Very strong presumption against null hypothesis: Sample follows theoretical distribution.
+0.0 9998.0 3.43367244733 3.04710797898
+17/05/20 14:22:19 INFO SparkContext: Starting job: count at KolmogorovSmirnovTest.scala:67
+17/05/20 14:22:19 INFO DAGScheduler: Got job 16 (count at KolmogorovSmirnovTest.scala:67) with 1 output partitions
+17/05/20 14:22:19 INFO DAGScheduler: Final stage: ResultStage 17 (count at KolmogorovSmirnovTest.scala:67)
+17/05/20 14:22:19 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:22:19 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:22:19 INFO DAGScheduler: Submitting ResultStage 17 (MapPartitionsRDD[28] at mapPartitions at PythonMLLibAPI.scala:1345), which has no missing parents
+17/05/20 14:22:19 INFO MemoryStore: Block broadcast_18 stored as values in memory (estimated size 4.4 KB, free 413.6 MB)
+17/05/20 14:22:19 INFO MemoryStore: Block broadcast_18_piece0 stored as bytes in memory (estimated size 2.8 KB, free 413.6 MB)
+17/05/20 14:22:19 INFO BlockManagerInfo: Added broadcast_18_piece0 in memory on 192.168.0.115:33937 (size: 2.8 KB, free: 413.9 MB)
+17/05/20 14:22:19 INFO SparkContext: Created broadcast 18 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:19 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 17 (MapPartitionsRDD[28] at mapPartitions at PythonMLLibAPI.scala:1345)
+17/05/20 14:22:19 INFO TaskSchedulerImpl: Adding task set 17.0 with 1 tasks
+17/05/20 14:22:19 INFO TaskSetManager: Starting task 0.0 in stage 17.0 (TID 17, localhost, executor driver, partition 0, PROCESS_LOCAL, 96099 bytes)
+17/05/20 14:22:19 INFO Executor: Running task 0.0 in stage 17.0 (TID 17)
+17/05/20 14:22:19 INFO PythonRunner: Times: total = 67, boot = -4949, init = 4961, finish = 55
+17/05/20 14:22:19 INFO Executor: Finished task 0.0 in stage 17.0 (TID 17). 1593 bytes result sent to driver
+17/05/20 14:22:19 INFO TaskSetManager: Finished task 0.0 in stage 17.0 (TID 17) in 193 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:19 INFO TaskSchedulerImpl: Removed TaskSet 17.0, whose tasks have all completed, from pool 
+17/05/20 14:22:19 INFO DAGScheduler: ResultStage 17 (count at KolmogorovSmirnovTest.scala:67) finished in 0.193 s
+17/05/20 14:22:19 INFO DAGScheduler: Job 16 finished: count at KolmogorovSmirnovTest.scala:67, took 0.336449 s
+17/05/20 14:22:19 INFO BlockManagerInfo: Removed broadcast_18_piece0 on 192.168.0.115:33937 in memory (size: 2.8 KB, free: 413.9 MB)
+17/05/20 14:22:19 INFO SparkContext: Starting job: collect at KolmogorovSmirnovTest.scala:71
+17/05/20 14:22:19 INFO DAGScheduler: Registering RDD 29 (sortBy at KolmogorovSmirnovTest.scala:68)
+17/05/20 14:22:19 INFO DAGScheduler: Got job 17 (collect at KolmogorovSmirnovTest.scala:71) with 1 output partitions
+17/05/20 14:22:19 INFO DAGScheduler: Final stage: ResultStage 19 (collect at KolmogorovSmirnovTest.scala:71)
+17/05/20 14:22:19 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 18)
+17/05/20 14:22:19 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 18)
+17/05/20 14:22:19 INFO DAGScheduler: Submitting ShuffleMapStage 18 (MapPartitionsRDD[29] at sortBy at KolmogorovSmirnovTest.scala:68), which has no missing parents
+17/05/20 14:22:19 INFO MemoryStore: Block broadcast_19 stored as values in memory (estimated size 6.1 KB, free 413.6 MB)
+17/05/20 14:22:19 INFO MemoryStore: Block broadcast_19_piece0 stored as bytes in memory (estimated size 3.6 KB, free 413.6 MB)
+17/05/20 14:22:19 INFO BlockManagerInfo: Added broadcast_19_piece0 in memory on 192.168.0.115:33937 (size: 3.6 KB, free: 413.9 MB)
+17/05/20 14:22:19 INFO SparkContext: Created broadcast 19 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:19 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 18 (MapPartitionsRDD[29] at sortBy at KolmogorovSmirnovTest.scala:68)
+17/05/20 14:22:19 INFO TaskSchedulerImpl: Adding task set 18.0 with 1 tasks
+17/05/20 14:22:19 INFO TaskSetManager: Starting task 0.0 in stage 18.0 (TID 18, localhost, executor driver, partition 0, PROCESS_LOCAL, 96173 bytes)
+17/05/20 14:22:19 INFO Executor: Running task 0.0 in stage 18.0 (TID 18)
+17/05/20 14:22:20 INFO PythonRunner: Times: total = 75, boot = -369, init = 378, finish = 66
+17/05/20 14:22:20 INFO Executor: Finished task 0.0 in stage 18.0 (TID 18). 1956 bytes result sent to driver
+17/05/20 14:22:20 INFO DAGScheduler: ShuffleMapStage 18 (sortBy at KolmogorovSmirnovTest.scala:68) finished in 0.480 s
+17/05/20 14:22:20 INFO TaskSetManager: Finished task 0.0 in stage 18.0 (TID 18) in 481 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:20 INFO TaskSchedulerImpl: Removed TaskSet 18.0, whose tasks have all completed, from pool 
+17/05/20 14:22:20 INFO DAGScheduler: looking for newly runnable stages
+17/05/20 14:22:20 INFO DAGScheduler: running: Set()
+17/05/20 14:22:20 INFO DAGScheduler: waiting: Set(ResultStage 19)
+17/05/20 14:22:20 INFO DAGScheduler: failed: Set()
+17/05/20 14:22:20 INFO DAGScheduler: Submitting ResultStage 19 (MapPartitionsRDD[32] at mapPartitions at KolmogorovSmirnovTest.scala:68), which has no missing parents
+17/05/20 14:22:20 INFO MemoryStore: Block broadcast_20 stored as values in memory (estimated size 19.9 KB, free 413.6 MB)
+17/05/20 14:22:20 INFO MemoryStore: Block broadcast_20_piece0 stored as bytes in memory (estimated size 7.9 KB, free 413.6 MB)
+17/05/20 14:22:20 INFO BlockManagerInfo: Added broadcast_20_piece0 in memory on 192.168.0.115:33937 (size: 7.9 KB, free: 413.9 MB)
+17/05/20 14:22:20 INFO SparkContext: Created broadcast 20 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:20 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 19 (MapPartitionsRDD[32] at mapPartitions at KolmogorovSmirnovTest.scala:68)
+17/05/20 14:22:20 INFO TaskSchedulerImpl: Adding task set 19.0 with 1 tasks
+17/05/20 14:22:20 INFO TaskSetManager: Starting task 0.0 in stage 19.0 (TID 19, localhost, executor driver, partition 0, ANY, 5805 bytes)
+17/05/20 14:22:20 INFO Executor: Running task 0.0 in stage 19.0 (TID 19)
+17/05/20 14:22:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+17/05/20 14:22:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+17/05/20 14:22:22 INFO Executor: Finished task 0.0 in stage 19.0 (TID 19). 1974 bytes result sent to driver
+17/05/20 14:22:22 INFO DAGScheduler: ResultStage 19 (collect at KolmogorovSmirnovTest.scala:71) finished in 1.826 s
+17/05/20 14:22:22 INFO TaskSetManager: Finished task 0.0 in stage 19.0 (TID 19) in 1829 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:22 INFO TaskSchedulerImpl: Removed TaskSet 19.0, whose tasks have all completed, from pool 
+17/05/20 14:22:22 INFO DAGScheduler: Job 17 finished: collect at KolmogorovSmirnovTest.scala:71, took 2.536770 s
+Kolmogorov-Smirnov test summary:
+degrees of freedom = 0 
+statistic = 0.9984262771334974 
+pValue = 3.795948000373528E-10 
+Very strong presumption against null hypothesis: Sample follows theoretical distribution.
+0.0 9998.0 5.64791139883 3.28389978815
+17/05/20 14:22:22 INFO SparkContext: Starting job: count at KolmogorovSmirnovTest.scala:67
+17/05/20 14:22:22 INFO DAGScheduler: Got job 18 (count at KolmogorovSmirnovTest.scala:67) with 1 output partitions
+17/05/20 14:22:22 INFO DAGScheduler: Final stage: ResultStage 20 (count at KolmogorovSmirnovTest.scala:67)
+17/05/20 14:22:22 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:22:22 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:22:22 INFO DAGScheduler: Submitting ResultStage 20 (MapPartitionsRDD[35] at mapPartitions at PythonMLLibAPI.scala:1345), which has no missing parents
+17/05/20 14:22:22 INFO MemoryStore: Block broadcast_21 stored as values in memory (estimated size 4.4 KB, free 413.6 MB)
+17/05/20 14:22:22 INFO MemoryStore: Block broadcast_21_piece0 stored as bytes in memory (estimated size 2.8 KB, free 413.6 MB)
+17/05/20 14:22:22 INFO BlockManagerInfo: Added broadcast_21_piece0 in memory on 192.168.0.115:33937 (size: 2.8 KB, free: 413.9 MB)
+17/05/20 14:22:22 INFO SparkContext: Created broadcast 21 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:22 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 20 (MapPartitionsRDD[35] at mapPartitions at PythonMLLibAPI.scala:1345)
+17/05/20 14:22:22 INFO TaskSchedulerImpl: Adding task set 20.0 with 1 tasks
+17/05/20 14:22:22 INFO TaskSetManager: Starting task 0.0 in stage 20.0 (TID 20, localhost, executor driver, partition 0, PROCESS_LOCAL, 96099 bytes)
+17/05/20 14:22:22 INFO Executor: Running task 0.0 in stage 20.0 (TID 20)
+17/05/20 14:22:23 INFO PythonRunner: Times: total = 71, boot = -2728, init = 2745, finish = 54
+17/05/20 14:22:23 INFO Executor: Finished task 0.0 in stage 20.0 (TID 20). 1593 bytes result sent to driver
+17/05/20 14:22:23 INFO TaskSetManager: Finished task 0.0 in stage 20.0 (TID 20) in 153 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:23 INFO TaskSchedulerImpl: Removed TaskSet 20.0, whose tasks have all completed, from pool 
+17/05/20 14:22:23 INFO DAGScheduler: ResultStage 20 (count at KolmogorovSmirnovTest.scala:67) finished in 0.148 s
+17/05/20 14:22:23 INFO DAGScheduler: Job 18 finished: count at KolmogorovSmirnovTest.scala:67, took 0.283862 s
+17/05/20 14:22:23 INFO BlockManagerInfo: Removed broadcast_21_piece0 on 192.168.0.115:33937 in memory (size: 2.8 KB, free: 413.9 MB)
+17/05/20 14:22:23 INFO SparkContext: Starting job: collect at KolmogorovSmirnovTest.scala:71
+17/05/20 14:22:23 INFO DAGScheduler: Registering RDD 36 (sortBy at KolmogorovSmirnovTest.scala:68)
+17/05/20 14:22:23 INFO DAGScheduler: Got job 19 (collect at KolmogorovSmirnovTest.scala:71) with 1 output partitions
+17/05/20 14:22:23 INFO DAGScheduler: Final stage: ResultStage 22 (collect at KolmogorovSmirnovTest.scala:71)
+17/05/20 14:22:23 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 21)
+17/05/20 14:22:23 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 21)
+17/05/20 14:22:23 INFO DAGScheduler: Submitting ShuffleMapStage 21 (MapPartitionsRDD[36] at sortBy at KolmogorovSmirnovTest.scala:68), which has no missing parents
+17/05/20 14:22:23 INFO MemoryStore: Block broadcast_22 stored as values in memory (estimated size 6.1 KB, free 413.6 MB)
+17/05/20 14:22:23 INFO MemoryStore: Block broadcast_22_piece0 stored as bytes in memory (estimated size 3.6 KB, free 413.6 MB)
+17/05/20 14:22:23 INFO BlockManagerInfo: Added broadcast_22_piece0 in memory on 192.168.0.115:33937 (size: 3.6 KB, free: 413.9 MB)
+17/05/20 14:22:23 INFO SparkContext: Created broadcast 22 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:23 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 21 (MapPartitionsRDD[36] at sortBy at KolmogorovSmirnovTest.scala:68)
+17/05/20 14:22:23 INFO TaskSchedulerImpl: Adding task set 21.0 with 1 tasks
+17/05/20 14:22:23 INFO TaskSetManager: Starting task 0.0 in stage 21.0 (TID 21, localhost, executor driver, partition 0, PROCESS_LOCAL, 96173 bytes)
+17/05/20 14:22:23 INFO Executor: Running task 0.0 in stage 21.0 (TID 21)
+17/05/20 14:22:23 INFO PythonRunner: Times: total = 70, boot = -349, init = 365, finish = 54
+17/05/20 14:22:23 INFO Executor: Finished task 0.0 in stage 21.0 (TID 21). 2043 bytes result sent to driver
+17/05/20 14:22:23 INFO DAGScheduler: ShuffleMapStage 21 (sortBy at KolmogorovSmirnovTest.scala:68) finished in 0.414 s
+17/05/20 14:22:23 INFO TaskSetManager: Finished task 0.0 in stage 21.0 (TID 21) in 415 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:23 INFO TaskSchedulerImpl: Removed TaskSet 21.0, whose tasks have all completed, from pool 
+17/05/20 14:22:23 INFO DAGScheduler: looking for newly runnable stages
+17/05/20 14:22:23 INFO DAGScheduler: running: Set()
+17/05/20 14:22:23 INFO DAGScheduler: waiting: Set(ResultStage 22)
+17/05/20 14:22:23 INFO DAGScheduler: failed: Set()
+17/05/20 14:22:23 INFO DAGScheduler: Submitting ResultStage 22 (MapPartitionsRDD[39] at mapPartitions at KolmogorovSmirnovTest.scala:68), which has no missing parents
+17/05/20 14:22:23 INFO MemoryStore: Block broadcast_23 stored as values in memory (estimated size 19.9 KB, free 413.6 MB)
+17/05/20 14:22:23 INFO MemoryStore: Block broadcast_23_piece0 stored as bytes in memory (estimated size 7.9 KB, free 413.6 MB)
+17/05/20 14:22:23 INFO BlockManagerInfo: Added broadcast_23_piece0 in memory on 192.168.0.115:33937 (size: 7.9 KB, free: 413.9 MB)
+17/05/20 14:22:23 INFO SparkContext: Created broadcast 23 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:24 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 22 (MapPartitionsRDD[39] at mapPartitions at KolmogorovSmirnovTest.scala:68)
+17/05/20 14:22:24 INFO TaskSchedulerImpl: Adding task set 22.0 with 1 tasks
+17/05/20 14:22:24 INFO TaskSetManager: Starting task 0.0 in stage 22.0 (TID 22, localhost, executor driver, partition 0, ANY, 5805 bytes)
+17/05/20 14:22:24 INFO Executor: Running task 0.0 in stage 22.0 (TID 22)
+17/05/20 14:22:24 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+17/05/20 14:22:24 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 5 ms
+17/05/20 14:22:24 INFO BlockManagerInfo: Removed broadcast_22_piece0 on 192.168.0.115:33937 in memory (size: 3.6 KB, free: 413.9 MB)
+17/05/20 14:22:25 INFO Executor: Finished task 0.0 in stage 22.0 (TID 22). 1974 bytes result sent to driver
+17/05/20 14:22:25 INFO TaskSetManager: Finished task 0.0 in stage 22.0 (TID 22) in 1625 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:25 INFO TaskSchedulerImpl: Removed TaskSet 22.0, whose tasks have all completed, from pool 
+17/05/20 14:22:25 INFO DAGScheduler: ResultStage 22 (collect at KolmogorovSmirnovTest.scala:71) finished in 1.623 s
+17/05/20 14:22:25 INFO DAGScheduler: Job 19 finished: collect at KolmogorovSmirnovTest.scala:71, took 2.308862 s
+Kolmogorov-Smirnov test summary:
+degrees of freedom = 0 
+statistic = 0.9981153403698385 
+pValue = 3.7487257742441216E-10 
+Very strong presumption against null hypothesis: Sample follows theoretical distribution.
+Computing kernel densities on all columns using a Bandwidth of 3.0
+17/05/20 14:22:26 INFO SparkContext: Starting job: aggregate at KernelDensity.scala:92
+17/05/20 14:22:26 INFO DAGScheduler: Got job 20 (aggregate at KernelDensity.scala:92) with 1 output partitions
+17/05/20 14:22:26 INFO DAGScheduler: Final stage: ResultStage 23 (aggregate at KernelDensity.scala:92)
+17/05/20 14:22:26 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:22:26 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:22:26 INFO DAGScheduler: Submitting ResultStage 23 (MapPartitionsRDD[41] at mapPartitions at PythonMLLibAPI.scala:1345), which has no missing parents
+17/05/20 14:22:26 INFO MemoryStore: Block broadcast_24 stored as values in memory (estimated size 6.6 KB, free 413.6 MB)
+17/05/20 14:22:26 INFO MemoryStore: Block broadcast_24_piece0 stored as bytes in memory (estimated size 3.6 KB, free 413.6 MB)
+17/05/20 14:22:26 INFO BlockManagerInfo: Added broadcast_24_piece0 in memory on 192.168.0.115:33937 (size: 3.6 KB, free: 413.9 MB)
+17/05/20 14:22:26 INFO SparkContext: Created broadcast 24 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:26 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 23 (MapPartitionsRDD[41] at mapPartitions at PythonMLLibAPI.scala:1345)
+17/05/20 14:22:26 INFO TaskSchedulerImpl: Adding task set 23.0 with 1 tasks
+17/05/20 14:22:26 INFO TaskSetManager: Starting task 0.0 in stage 23.0 (TID 23, localhost, executor driver, partition 0, PROCESS_LOCAL, 96186 bytes)
+17/05/20 14:22:26 INFO Executor: Running task 0.0 in stage 23.0 (TID 23)
+17/05/20 14:22:27 INFO PythonRunner: Times: total = 87, boot = -3013, init = 3038, finish = 62
+17/05/20 14:22:27 INFO Executor: Finished task 0.0 in stage 23.0 (TID 23). 2476 bytes result sent to driver
+17/05/20 14:22:27 INFO TaskSetManager: Finished task 0.0 in stage 23.0 (TID 23) in 1097 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:27 INFO TaskSchedulerImpl: Removed TaskSet 23.0, whose tasks have all completed, from pool 
+17/05/20 14:22:27 INFO DAGScheduler: ResultStage 23 (aggregate at KernelDensity.scala:92) finished in 1.097 s
+17/05/20 14:22:27 INFO DAGScheduler: Job 20 finished: aggregate at KernelDensity.scala:92, took 1.305699 s
+17/05/20 14:22:27 INFO BlockManagerInfo: Removed broadcast_24_piece0 on 192.168.0.115:33937 in memory (size: 3.6 KB, free: 413.9 MB)
+Estimating kernel densities
+Print kernel densities at sample points
+17/05/20 14:22:28 INFO SparkContext: Starting job: aggregate at KernelDensity.scala:92
+17/05/20 14:22:28 INFO DAGScheduler: Got job 21 (aggregate at KernelDensity.scala:92) with 1 output partitions
+17/05/20 14:22:28 INFO DAGScheduler: Final stage: ResultStage 24 (aggregate at KernelDensity.scala:92)
+17/05/20 14:22:28 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:22:28 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:22:28 INFO DAGScheduler: Submitting ResultStage 24 (MapPartitionsRDD[44] at mapPartitions at PythonMLLibAPI.scala:1345), which has no missing parents
+17/05/20 14:22:28 INFO MemoryStore: Block broadcast_25 stored as values in memory (estimated size 6.6 KB, free 413.6 MB)
+17/05/20 14:22:28 INFO MemoryStore: Block broadcast_25_piece0 stored as bytes in memory (estimated size 3.6 KB, free 413.6 MB)
+17/05/20 14:22:28 INFO BlockManagerInfo: Added broadcast_25_piece0 in memory on 192.168.0.115:33937 (size: 3.6 KB, free: 413.9 MB)
+17/05/20 14:22:28 INFO SparkContext: Created broadcast 25 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:28 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 24 (MapPartitionsRDD[44] at mapPartitions at PythonMLLibAPI.scala:1345)
+17/05/20 14:22:28 INFO TaskSchedulerImpl: Adding task set 24.0 with 1 tasks
+17/05/20 14:22:28 INFO TaskSetManager: Starting task 0.0 in stage 24.0 (TID 24, localhost, executor driver, partition 0, PROCESS_LOCAL, 96186 bytes)
+17/05/20 14:22:28 INFO Executor: Running task 0.0 in stage 24.0 (TID 24)
+17/05/20 14:22:29 INFO PythonRunner: Times: total = 66, boot = -1879, init = 1887, finish = 58
+17/05/20 14:22:29 INFO Executor: Finished task 0.0 in stage 24.0 (TID 24). 2476 bytes result sent to driver
+17/05/20 14:22:29 INFO DAGScheduler: ResultStage 24 (aggregate at KernelDensity.scala:92) finished in 1.020 s
+17/05/20 14:22:29 INFO TaskSetManager: Finished task 0.0 in stage 24.0 (TID 24) in 1021 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:29 INFO TaskSchedulerImpl: Removed TaskSet 24.0, whose tasks have all completed, from pool 
+17/05/20 14:22:29 INFO DAGScheduler: Job 21 finished: aggregate at KernelDensity.scala:92, took 1.174350 s
+17/05/20 14:22:29 INFO BlockManagerInfo: Removed broadcast_25_piece0 on 192.168.0.115:33937 in memory (size: 3.6 KB, free: 413.9 MB)
+5.6654703477e-05,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,
+
+17/05/20 14:22:30 INFO SparkContext: Starting job: aggregate at KernelDensity.scala:92
+17/05/20 14:22:30 INFO DAGScheduler: Got job 22 (aggregate at KernelDensity.scala:92) with 1 output partitions
+17/05/20 14:22:30 INFO DAGScheduler: Final stage: ResultStage 25 (aggregate at KernelDensity.scala:92)
+17/05/20 14:22:30 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:22:30 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:22:30 INFO DAGScheduler: Submitting ResultStage 25 (MapPartitionsRDD[47] at mapPartitions at PythonMLLibAPI.scala:1345), which has no missing parents
+17/05/20 14:22:30 INFO MemoryStore: Block broadcast_26 stored as values in memory (estimated size 6.6 KB, free 413.6 MB)
+17/05/20 14:22:30 INFO MemoryStore: Block broadcast_26_piece0 stored as bytes in memory (estimated size 3.6 KB, free 413.6 MB)
+17/05/20 14:22:30 INFO BlockManagerInfo: Added broadcast_26_piece0 in memory on 192.168.0.115:33937 (size: 3.6 KB, free: 413.9 MB)
+17/05/20 14:22:30 INFO SparkContext: Created broadcast 26 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:30 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 25 (MapPartitionsRDD[47] at mapPartitions at PythonMLLibAPI.scala:1345)
+17/05/20 14:22:30 INFO TaskSchedulerImpl: Adding task set 25.0 with 1 tasks
+17/05/20 14:22:30 INFO TaskSetManager: Starting task 0.0 in stage 25.0 (TID 25, localhost, executor driver, partition 0, PROCESS_LOCAL, 96186 bytes)
+17/05/20 14:22:30 INFO Executor: Running task 0.0 in stage 25.0 (TID 25)
+17/05/20 14:22:31 INFO PythonRunner: Times: total = 65, boot = -1835, init = 1848, finish = 52
+17/05/20 14:22:31 INFO Executor: Finished task 0.0 in stage 25.0 (TID 25). 2476 bytes result sent to driver
+17/05/20 14:22:31 INFO DAGScheduler: ResultStage 25 (aggregate at KernelDensity.scala:92) finished in 1.005 s
+17/05/20 14:22:31 INFO TaskSetManager: Finished task 0.0 in stage 25.0 (TID 25) in 1007 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:31 INFO TaskSchedulerImpl: Removed TaskSet 25.0, whose tasks have all completed, from pool 
+17/05/20 14:22:31 INFO DAGScheduler: Job 22 finished: aggregate at KernelDensity.scala:92, took 1.140957 s
+17/05/20 14:22:32 INFO BlockManagerInfo: Removed broadcast_26_piece0 on 192.168.0.115:33937 in memory (size: 3.6 KB, free: 413.9 MB)
+5.6654703477e-05,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,
+
+17/05/20 14:22:32 INFO SparkContext: Starting job: aggregate at KernelDensity.scala:92
+17/05/20 14:22:32 INFO DAGScheduler: Got job 23 (aggregate at KernelDensity.scala:92) with 1 output partitions
+17/05/20 14:22:32 INFO DAGScheduler: Final stage: ResultStage 26 (aggregate at KernelDensity.scala:92)
+17/05/20 14:22:32 INFO DAGScheduler: Parents of final stage: List()
+17/05/20 14:22:32 INFO DAGScheduler: Missing parents: List()
+17/05/20 14:22:32 INFO DAGScheduler: Submitting ResultStage 26 (MapPartitionsRDD[50] at mapPartitions at PythonMLLibAPI.scala:1345), which has no missing parents
+17/05/20 14:22:32 INFO MemoryStore: Block broadcast_27 stored as values in memory (estimated size 6.6 KB, free 413.6 MB)
+17/05/20 14:22:32 INFO MemoryStore: Block broadcast_27_piece0 stored as bytes in memory (estimated size 3.6 KB, free 413.6 MB)
+17/05/20 14:22:32 INFO BlockManagerInfo: Added broadcast_27_piece0 in memory on 192.168.0.115:33937 (size: 3.6 KB, free: 413.9 MB)
+17/05/20 14:22:32 INFO SparkContext: Created broadcast 27 from broadcast at DAGScheduler.scala:996
+17/05/20 14:22:32 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 26 (MapPartitionsRDD[50] at mapPartitions at PythonMLLibAPI.scala:1345)
+17/05/20 14:22:32 INFO TaskSchedulerImpl: Adding task set 26.0 with 1 tasks
+17/05/20 14:22:32 INFO TaskSetManager: Starting task 0.0 in stage 26.0 (TID 26, localhost, executor driver, partition 0, PROCESS_LOCAL, 96187 bytes)
+17/05/20 14:22:32 INFO Executor: Running task 0.0 in stage 26.0 (TID 26)
+17/05/20 14:22:33 INFO PythonRunner: Times: total = 65, boot = -1830, init = 1838, finish = 57
+17/05/20 14:22:33 INFO Executor: Finished task 0.0 in stage 26.0 (TID 26). 2476 bytes result sent to driver
+17/05/20 14:22:33 INFO TaskSetManager: Finished task 0.0 in stage 26.0 (TID 26) in 998 ms on localhost (executor driver) (1/1)
+17/05/20 14:22:33 INFO TaskSchedulerImpl: Removed TaskSet 26.0, whose tasks have all completed, from pool 
+17/05/20 14:22:33 INFO DAGScheduler: ResultStage 26 (aggregate at KernelDensity.scala:92) finished in 0.996 s
+17/05/20 14:22:33 INFO DAGScheduler: Job 23 finished: aggregate at KernelDensity.scala:92, took 1.129360 s
+17/05/20 14:22:34 INFO BlockManagerInfo: Removed broadcast_27_piece0 on 192.168.0.115:33937 in memory (size: 3.6 KB, free: 413.9 MB)
+5.6654703477e-05,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,0.000100010001,
+
+Skewness of columns
+Text,-0.0370404368619,Text,-0.0107859003008,Text,0.00825932305823,Text,
+Kurtosis of columns
+Text,0.0218998255879,Text,0.000432776502343,Text,0.0581051157448,Text,
+Inferring column data types (Text string, Int, Float)
+Attempting to infer if an Int column is a numeric label
+If all Ints in a column are >= 0 and 'large', it may be numLabel
+If all Ints in a column are >= 0 and excess kurtosis is outside [-1.2, 3.0], it may be numLabel
+Wrote  rowNormL1L2.csv
+Wrote  /home/bsrsharma/work/python/features.csv 
+
+medians:
+Text,1.18188592511,Text,3.43993278947,Text,5.65320569185,
+
+
+Computing histograms for numeric columns
+choosing  99  bins
+column  0 (  XE2DMPY6ELYGPXJZB9KA2LC  ): Text
+column  1 (  0.334370894593  ):
+1,1,1,0,0,2,0,1,3,0,1,5,3,4,9,10,9,14,15,15,19,16,32,36,37,40,50,57,67,80,88,107,126,124,140,144,150,167,215,208,205,233,277,270,263,271,277,286,319,290,306,298,321,298,293,285,260,278,279,256,260,229,225,193,176,160,145,144,117,105,107,98,70,58,60,51,33,21,36,25,23,18,18,12,11,7,6,7,7,4,2,4,0,2,1,0,1,0,0,
+column  2 (  3PLJWB9TN6PS9NMPHBYN9787CCJ69  ): Text
+column  3 (  1.08740026718  ):
+2,0,0,0,0,1,0,1,1,4,3,5,4,5,8,3,4,11,12,9,19,20,17,32,35,52,53,61,66,85,96,92,97,132,118,135,180,163,166,199,207,217,234,257,272,284,270,285,290,309,328,310,327,309,292,308,272,283,247,265,231,214,196,189,199,169,164,144,126,141,122,91,96,63,55,51,43,33,32,31,28,21,19,23,7,13,9,10,3,5,1,4,5,0,1,1,1,0,0,
+column  4 (  HMGYYVJLYW248K8ZKB  ): Text
+column  5 (  6.24391558094  ):
+1,0,0,0,0,0,1,1,0,1,0,1,0,6,2,4,8,10,7,7,13,21,26,19,26,35,48,45,62,67,66,77,105,124,117,137,157,162,184,218,218,216,269,275,284,309,325,314,276,326,345,373,328,344,301,320,300,295,271,256,245,222,208,196,179,160,147,120,98,110,80,69,89,52,51,48,44,28,36,24,17,16,12,5,11,10,5,2,7,2,1,0,0,0,0,0,0,0,1,
+
+
+
+modes:
+Text,11.3612300212,Text,14.3102520784,Text,18.358925744,
+
+
+findFeatures ended with  0
+17/05/20 14:22:41 INFO SparkContext: Invoking stop() from shutdown hook
+17/05/20 14:22:41 INFO SparkUI: Stopped Spark web UI at http://192.168.0.115:4040
+17/05/20 14:22:42 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+17/05/20 14:22:42 INFO MemoryStore: MemoryStore cleared
+17/05/20 14:22:42 INFO BlockManager: BlockManager stopped
+17/05/20 14:22:42 INFO BlockManagerMaster: BlockManagerMaster stopped
+17/05/20 14:22:42 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+17/05/20 14:22:42 INFO SparkContext: Successfully stopped SparkContext
+17/05/20 14:22:42 INFO ShutdownHookManager: Shutdown hook called
+17/05/20 14:22:42 INFO ShutdownHookManager: Deleting directory /tmp/spark-9b7a39ff-4acd-47e5-8b04-3823d88a2007/pyspark-472c3aea-9570-4d48-8279-f2df300574a3
+17/05/20 14:22:42 INFO ShutdownHookManager: Deleting directory /tmp/spark-9b7a39ff-4acd-47e5-8b04-3823d88a2007
+bash-4.3$ 

@@ -192,7 +192,6 @@ def makeSubstData(inputFileName, outputFileName):
    print()      
    
   
-   arrn = [[0.0 for x in range(numCols)] for y in range(numRows)]
    vID = [' ']*30
    
    import random
@@ -201,22 +200,17 @@ def makeSubstData(inputFileName, outputFileName):
    
    for j in range (numCols):
      mean[j] = summary.mean()[j]
- 
-   for j in range (numCols):
-      for i in range (numRows):
-	 arrn[i][j] = random.gauss(mean[j], stdDev[j])
- 
-   print()
+
    for i in range (min(4, numRows)):
       for j in range (max(1, numCols - 1)):
 	if (typeStrings[j] == 'String'):
            print(makeAnonStr(LoLoStr[i][j]), end=',')
         else:
-           print(arrn[i][j], end=',')
+           print(random.gauss(mean[j], stdDev[j]), end=',')
       if (typeStrings[numCols-1] == 'String'):
          print(makeAnonStr(LoLoStr[i][numCols-1]))
       else:	
-         print(arrn[i][numCols-1])
+         print(random.gauss(mean[numCols-1], stdDev[numCols-1]))
    print()
    
    fileHandle = open(outputFileName, 'w')
@@ -233,12 +227,12 @@ def makeSubstData(inputFileName, outputFileName):
 	    if (typeStrings[j] == 'String'):
 	       fileHandle.write(makeAnonStr(LoLoStr[i][j])+ ',')
 	    else:   
-               fileHandle.write('%s' % arrn[i][j])
+               fileHandle.write('%s' % random.gauss(mean[j], stdDev[j]))
                fileHandle.write(',')
       if (typeStrings[numCols-2] == 'String'):
          fileHandle.write(makeAnonStr(LoLoStr[i][numCols-2]))
       else:	    
-         fileHandle.write('%s' % arrn[i][numCols-2])
+         fileHandle.write('%s' % random.gauss(mean[numCols-2], stdDev[numCols-2]))
       fileHandle.write('\n')
    fileHandle.close()
 
@@ -289,7 +283,3 @@ if __name__ == "__main__":
     rc = makeSubstData("/home/bsrsharma/work/python/arran.csv", "/home/bsrsharma/work/python/subst.csv"  )
     
     print("makeSubstData ended with ", rc)
-  
-  
-  
-

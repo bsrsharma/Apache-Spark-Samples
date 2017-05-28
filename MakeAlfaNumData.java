@@ -51,18 +51,6 @@ public final class MakeAlfaNumData
       return(String.valueOf(AoC));
     }
     
-   public static void shiftAndScaleMat (int maxRow, int maxCol, double mean[], double stdDev[], DenseMatrix origData, double arrn[][] )
-   {
-   
-      int i,j;
-
-      for (j = 0; j < maxCol; j++)
-         for (i = 0; i < maxRow; i++)
-	 {
-	    arrn[i][j] = mean[j] + stdDev[j]*origData.apply(i, j);
-         }		  
-   }
-   
    static class ParseDouble implements Function<String[], double[]>
    {
       @Override
@@ -100,7 +88,7 @@ public final class MakeAlfaNumData
       
       byte vID[] = new byte[16];
       int rblen;
-      double arrn[][] = new double[numRows][numCols];
+      //double arrn[][] = new double[numRows][numCols];
       
       meanAndVariancesArrLength = meanAndVarianceArrs.length;
       numColsTimes2 = 2*numCols;
@@ -113,23 +101,15 @@ public final class MakeAlfaNumData
          return -1;
       }
 
-      System.out.println("DenseMatrix randn( " + numRows + " , " + numCols + " )");
-
-      double values[] = new double[numRows*numCols];
-      
-      DenseMatrix origData = new DenseMatrix(numRows, numCols, values);
-      origData = origData.randn(numRows, numCols, rng);
-
       System.out.println("print out a few rows generated....");
 
       for (i = 0; i < Math.min(4, numRows); i++)
       {
-         // print a 13 char visual ID
          rng.nextBytes(vID);
          System.out.print(makeNiceStr(vID) + "\t");
          for (j = 0; j < numCols; j++)
          {
-            System.out.print(origData.apply(i,j) + "\t");
+            System.out.print(String.valueOf(rng.nextGaussian()) + "\t");
 	    rng.nextBytes(vID);
 	    rblen = rng.nextInt(10);
             System.out.print(makeNiceStr(vID).substring(0,6+rblen) + "\t");
@@ -167,8 +147,6 @@ public final class MakeAlfaNumData
       for (j = 0; j < numCols; j++)
          stdDev[j] = Math.sqrt(variance[j]);
 
-      shiftAndScaleMat(numRows, numCols, mean, stdDev, origData, arrn);
-
       System.out.println("print out a few rows of transformed data" );
 
       for (i = 0; i < Math.min(4, numRows); i++)
@@ -177,7 +155,7 @@ public final class MakeAlfaNumData
          System.out.print(makeNiceStr(vID) + "\t");
          for (j = 0; j < numCols; j++)
          {
-            System.out.print(arrn[i][j] + "\t");
+            System.out.print(String.valueOf(rng.nextGaussian()*stdDev[j] + mean[j]) + "\t");
 	    rng.nextBytes(vID);
 	    rblen = rng.nextInt(10);
             System.out.print(makeNiceStr(vID).substring(0,6+rblen) + "\t");
@@ -189,7 +167,6 @@ public final class MakeAlfaNumData
       {
          PrintWriter fileHandle = new PrintWriter(outputFileName);
 
-
          for (i = 0; i < numRows; i++)
          {
             rng.nextBytes(vID);
@@ -199,13 +176,13 @@ public final class MakeAlfaNumData
             {
                for (j = 0; j < numCols - 1; j++)
                {
-	          fileHandle.print(String.valueOf(arrn[i][j]));
+	          fileHandle.print(String.valueOf(rng.nextGaussian()*stdDev[j] + mean[j]));
                   fileHandle.print(",");
                   rng.nextBytes(vID);
 	          rblen = rng.nextInt(10);
                   fileHandle.print(makeNiceStr(vID).substring(0,6+rblen)); fileHandle.print(",");
                }
-               fileHandle.println(String.valueOf(arrn[i][numCols - 1]));
+               fileHandle.println(String.valueOf(rng.nextGaussian()*stdDev[j] + mean[j]));
             }
          }
          fileHandle.close();
@@ -229,31 +206,9 @@ public final class MakeAlfaNumData
       JavaRDD<String[]> parsedData = arrnFile.map(s -> s.split(","));
       
       System.out.println("print out a few vectors after converting from strings");
-/*      
-      for (String[] sA: parsedData.take(5))
-      {
-         for (String s: sA)
-            System.out.print( s + "\t" );
-         System.out.println();
-      }             
-*/      
+
       JavaRDD<double[]> parsedDataD = parsedData.map(new ParseDouble());
-/*      
-      for (double[] dA: parsedDataD.take(5))
-      {
-         for (double d: dA)
-            System.out.print( d + "\t" );
-         System.out.println();
-      }
-      
-      i = 0;
-      for (double[] dA: parsedDataD.take(numRows))
-      {
-         if ((dA[0] != 0.0) || (dA[2] != 0.0) || (dA[4] != 0.0))
-           System.out.println(i+"\t"+dA[0]+"\t"+dA[1]+"\t"+dA[2]+"\t"+dA[3]+"\t"+dA[4]+"\t"+dA[5]);
-         i++;           
-      }
-*/      
+     
       JavaRDD<Vector> parsedDataV = parsedDataD.map(dA -> Vectors.dense(dA));
       
       System.out.println( parsedDataV.take(5) );

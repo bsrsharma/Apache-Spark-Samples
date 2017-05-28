@@ -88,7 +88,6 @@ public final class MakeAlfaNumData
       
       byte vID[] = new byte[16];
       int rblen;
-      //double arrn[][] = new double[numRows][numCols];
       
       meanAndVariancesArrLength = meanAndVarianceArrs.length;
       numColsTimes2 = 2*numCols;

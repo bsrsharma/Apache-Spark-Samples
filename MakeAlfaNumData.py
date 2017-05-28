@@ -72,24 +72,18 @@ def fnMakeAlfaNumData(outputFileName, numRows, numCols, means, variances):
    for j in range (numCols):
       stdDev[j] = math.sqrt(variance[j])
       
-   arrn = [[0.0 for x in range(numCols)] for y in range(numRows)] 
- 
-   for j in range (numCols):
-      for i in range (numRows):
-	 arrn[i][j] = random.gauss(mean[j], stdDev[j])
-
    print()
    for i in range (min(4, numRows)):
       for k in range (13):
          vID[k] = chr(random.randint(0, 255))
       print(makeNiceStr(vID[0:13]), end=',')
       for j in range (max(0, numCols - 1)):
-         print(arrn[i][j], end=',')
+         print(random.gauss(mean[j], stdDev[j]), end=',')
          rblen = random.randint(1,20) + 10
          for k in range (rblen):
             vID[k] = chr(random.randint(0, 255))   
          print(makeNiceStr(vID[0:rblen]), end=',')	
-      print(arrn[i][numCols-1])
+      print(random.gauss(mean[numCols-1], stdDev[numCols-1]))
    print()      
 
    fileHandle = open(outputFileName, 'w')
@@ -102,14 +96,13 @@ def fnMakeAlfaNumData(outputFileName, numRows, numCols, means, variances):
      fileHandle.write(",")
      if (numCols > 1):
         for j in range (max(0 , numCols - 1)):
-           fileHandle.write('%s' % arrn[i][j])
+           fileHandle.write('%s' % random.gauss(mean[j], stdDev[j]))
            fileHandle.write(",")
-           # Add a alfa field
            rblen = random.randint(1,20) + 10
            for k in range (rblen):
               vID[k] = chr(random.randint(0, 255))   
            fileHandle.write(makeNiceStr(vID[0:rblen])+ ',')
-        fileHandle.write('%s' % arrn[i][numCols-1])
+        fileHandle.write('%s' % random.gauss(mean[numCols-1], stdDev[numCols-1]))
         fileHandle.write("\n")     
    fileHandle.close()
 

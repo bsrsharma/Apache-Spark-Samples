@@ -1,56 +1,56 @@
 from __future__ import print_function
 
 # replace a quoted string with commas with unquoted string with underscores
-def removeEmbeddedCommas(str):
+def removeEmbeddedCommas(strng):
 
    quoteSeen = False
-   LoC = [' ']*len(str)
-   for i in range(len(str)):
-      LoC[i] = str[i]
-      if ((str[i] == "'" ) or (str[i] == '"')):
+   LoC = [' ']*len(strng)
+   for i in range(len(strng)):
+      LoC[i] = strng[i]
+      if ((strng[i] == "'" ) or (strng[i] == '"')):
          if (quoteSeen == True):
             quoteSeen = False
          else:
             quoteSeen = True
             LoC[i] = ' '
-      if ((str[i] == ',') and (quoteSeen == True)):
+      if ((strng[i] == ',') and (quoteSeen == True)):
          LoC[i] = '_'
 	 
    return (''.join(LoC))
 
 
 # This function returns a 0.0 if the operand string can't be converted to a float; otherwise, the input is converted to float
-def with0Str(str):
+def with0Str(strng):
    try:
-       f = float(str)
+       f = float(strng)
        return f
    except StandardError:
        return 0.0
      
 import hashlib
 
-def md5(str):
+def md5(strng):
     m = hashlib.md5()
-    m.update(str)
+    m.update(strng)
     return m.digest()     
      
 # This function takes a string and generates a similar looking anonymized string
 
-def makeAnonStr(str): 
-   LoC = [' ']*len(str)
+def makeAnonStr(strng): 
+   LoC = [' ']*len(strng)
    md5LoB = [' ']*16
    substrEnd = 0
    myInt = 0
    c = ' '
    
-   for i in range(len(str)):
+   for i in range(len(strng)):
       if (i % 16 == 0):
          substrEnd = i + 16
-         if (i + 16 > len(str)):
-            substrEnd =  len(str)
-         md5LoB = md5(str)
+         if (i + 16 > len(strng)):
+            substrEnd =  len(strng)
+         md5LoB = md5(strng)
    
-      c = str[i]
+      c = strng[i]
 	  
       LoC[i] = c
       myInt = ord(md5LoB[i % 16])
@@ -65,6 +65,27 @@ def makeAnonStr(str):
 	    LoC[i] = chr((myInt % 10) + ord('0'))
 		
    return (''.join(LoC))
+ 
+from random import gauss
+
+typeStrings = []
+mean = []
+stdDev = []
+
+ 
+def anonymizeRow(row):
+   rowL = row.split(',')
+   anonRow = ''
+   for j in range(len(rowL)):
+      if (typeStrings[j] == 'String'):
+         anonRow += makeAnonStr(rowL[j])
+      else:
+	 anonRow += str(gauss(mean[j], stdDev[j]))
+      if (j < len(rowL) - 1):
+         anonRow += ','
+   return anonRow         
+	 
+     
 
 from pyspark import SparkConf, SparkContext
 
@@ -156,84 +177,54 @@ def makeSubstData(inputFileName, outputFileName):
    
    numCols = len(summary.mean())
    
-   stdDev = [0.0]*numCols
+   for j in range (numCols):
+     mean.append(summary.mean()[j])   
    
+  
    import math
    
    for j in range (numCols):
-      stdDev[j] = math.sqrt(summary.variance()[j])
-   
-   typeStrings = [' ']*numCols
-
+      stdDev.append(math.sqrt(summary.variance()[j]))
+      
    # infer columns where normL1, normL2, mean, variance, max and mean are 0 as non-numeric
 
    print('Inferring column data types:')
    
    for j in range(numCols):
       if ((summary.normL1()[j] == 0.0) and (summary.normL2()[j] == 0.0) and (summary.mean()[j] == 0.0) and (summary.variance()[j] == 0.0) and (summary.max()[j] == 0.0) and (summary.min()[j] == 0.0)):
-         typeStrings[j] = 'String'
+         typeStrings.append('String')
       else:
          if ((math.trunc(summary.normL1()[j]) == summary.normL1()[j]) and (math.trunc(summary.max()[j]) == summary.max()[j]) and (math.trunc(summary.min()[j]) == summary.min()[j]) ):
-            typeStrings[j] = 'Int'
+            typeStrings.append('Int')
          else:
-            typeStrings[j] = 'Double'
+            typeStrings.append('Double')
             
       print(typeStrings[j], end=',')              
 
    print('\n\n')
   
   
-   LoLoStr = inpFileNh.map(lambda s: s.split(',')).collect()
+   outRDD = inpFileNh.map(lambda s: anonymizeRow(s))
+   print('Print out a few rows from outRDD')
+   print('\n', outRDD.take(5), '\n' )
    
-   for i in range(min(4,numRows)):
-      for j in range(numCols):
-         print( LoLoStr[i][j], end=',' )
-      print()
-   print()      
-   
-  
-   vID = [' ']*30
-   
-   import random
-   
-   mean = [0.0]*numCols
-   
-   for j in range (numCols):
-     mean[j] = summary.mean()[j]
-
-   for i in range (min(4, numRows)):
-      for j in range (max(1, numCols - 1)):
-	if (typeStrings[j] == 'String'):
-           print(makeAnonStr(LoLoStr[i][j]), end=',')
-        else:
-           print(random.gauss(mean[j], stdDev[j]), end=',')
-      if (typeStrings[numCols-1] == 'String'):
-         print(makeAnonStr(LoLoStr[i][numCols-1]))
-      else:	
-         print(random.gauss(mean[numCols-1], stdDev[numCols-1]))
-   print()
+   #outRDD.saveAsTextFile(outputFileName) # creates a directory with partioned file segments, records may not be in order
    
    fileHandle = open(outputFileName, 'w')
 
    # put back header
    if (numCols > 2):
          for j in range (max(1 , numCols - 2)):
-	    fileHandle.write(hL[j] + ',')
+            fileHandle.write(hL[j] + ',')
    fileHandle.write(hL[numCols-2] + '\n')
+   
+   LoLoStr = outRDD.map(lambda s: s.split(',')).collect()
          
    for i in range(numRows):
       if (numCols > 2):
          for j in range (max(1 , numCols - 2)):
-	    if (typeStrings[j] == 'String'):
-	       fileHandle.write(makeAnonStr(LoLoStr[i][j])+ ',')
-	    else:   
-               fileHandle.write('%s' % random.gauss(mean[j], stdDev[j]))
-               fileHandle.write(',')
-      if (typeStrings[numCols-2] == 'String'):
-         fileHandle.write(makeAnonStr(LoLoStr[i][numCols-2]))
-      else:	    
-         fileHandle.write('%s' % random.gauss(mean[numCols-2], stdDev[numCols-2]))
-      fileHandle.write('\n')
+            fileHandle.write(LoLoStr[i][j] + ',')
+      fileHandle.write(LoLoStr[i][numCols-2] + '\n')
    fileHandle.close()
 
    print('Wrote',  outputFileName, '\n')

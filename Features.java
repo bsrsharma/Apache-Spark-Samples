@@ -262,7 +262,9 @@ public final class Features
       System.out.println("print out a few rows");
       System.out.println( inpFileTr.take(5));
       
-      JavaRDD<Vector> parsedInpV = inpFileTr.map(s -> s.split(",")).map(new ParseDouble()).map(dA -> Vectors.dense(dA));
+      JavaRDD<String[]> inpFileSA = inpFileTr.map(s -> s.split(",")).cache();
+      
+      JavaRDD<Vector> parsedInpV = inpFileSA.map(new ParseDouble()).map(dA -> Vectors.dense(dA));
       
       summary = Statistics.colStats(parsedInpV.rdd());
       
@@ -337,7 +339,7 @@ public final class Features
 			
 /******************************************************************************/
       
-      JavaRDD<String[]> outData = inpFileTr.map(s -> s.split(",")).map(new Normalize());
+      JavaRDD<String[]> outData = inpFileSA.map(new Normalize());
 
       JavaRDD<String[]> normL1L2 = outData.map(new NormL1L2());
       
@@ -374,9 +376,7 @@ public final class Features
       
       sortKeyIndex = 2;
       System.out.println("key L2: NormL1L2:");
-      //JavaPairRDD<Double, String[]> keyL2NormL1L2 = normL1L2.mapToPair(new KeyNormL1L2()).sortByKey();      
-      
-      //for (Tuple2<Double, String[]> tDSA: keyL2NormL1L2.take(5))
+
       for (Tuple2<Double, String[]> tDSA: normL1L2.mapToPair(new KeyNormL1L2()).sortByKey().take(5))
       {
          System.out.println( tDSA._2()[0] + "\t" + tDSA._2()[1] + "\t" + tDSA._2()[2]);
@@ -389,7 +389,7 @@ public final class Features
       }
       
       sortKeyIndex = 1;
-      JavaDoubleRDD col1 = sc.parallelizeDoubles(inpFileTr.map(s -> s.split(",")).map(sA -> Double.parseDouble(sA[sortKeyIndex])).collect());      
+      JavaDoubleRDD col1 = sc.parallelizeDoubles(inpFileSA.map(sA -> Double.parseDouble(sA[sortKeyIndex])).collect());      
       
       KolmogorovSmirnovTestResult testResult = Statistics.kolmogorovSmirnovTest(col1, "norm", mean[1], stdDev[1]);
       // summary of the test including the p-value, test statistic, and null hypothesis
@@ -397,7 +397,7 @@ public final class Features
       System.out.println("Column[ " + sortKeyIndex + " ]\n" + testResult);
       
       sortKeyIndex = 3;
-      JavaRDD<Double> col3 = inpFileTr.map(s -> s.split(",")).map(sA -> Double.parseDouble(sA[sortKeyIndex]));
+      JavaRDD<Double> col3 = inpFileSA.map(sA -> Double.parseDouble(sA[sortKeyIndex]));
       
       KernelDensity kd = new KernelDensity().setSample(col3).setBandwidth(3.0);
 
@@ -416,7 +416,7 @@ public final class Features
       //  compute Skewness and Kurtosis for a column
       //
       sortKeyIndex = 5;
-      JavaRDD<Double> col5 = inpFileTr.map(s -> s.split(",")).map(sA -> Double.parseDouble(sA[sortKeyIndex]));
+      JavaRDD<Double> col5 = inpFileSA.map(sA -> Double.parseDouble(sA[sortKeyIndex]));
       
       double sumOfPow3 = col5.map(d -> Math.pow(d, 3.0)).reduce((a, b) -> a + b);
       double sumOfPow4 = col5.map(d -> Math.pow(d, 4.0)).reduce((a, b) -> a + b);
@@ -432,8 +432,8 @@ public final class Features
       // compute median for a column
       
       sortKeyIndex = 3;
-      //JavaPairRDD<Double, String[]> col3Key = inpFileTr.map(s -> s.split(",")).mapToPair(new KeyNormL1L2()).sortByKey();
-      Tuple2<Double, String[]> col3Median = (inpFileTr.map(s -> s.split(",")).mapToPair(new KeyNormL1L2()).sortByKey().take((int)(numRows/2))).get((int)(numRows/2) - 1);
+      //JavaPairRDD<Double, String[]> col3Key = inpFileSA.mapToPair(new KeyNormL1L2()).sortByKey();
+      Tuple2<Double, String[]> col3Median = (inpFileSA.mapToPair(new KeyNormL1L2()).sortByKey().take((int)(numRows/2))).get((int)(numRows/2) - 1);
       System.out.println("median[" + sortKeyIndex + "] = " + col3Median._1());
       
       // compute Histogram for a column
@@ -441,9 +441,8 @@ public final class Features
       sortKeyIndex = 1;
       int numBins = (int)Math.sqrt(numRows);
       binWidth = (summary.max().apply(sortKeyIndex) - colMin[sortKeyIndex])/numBins;
-      //JavaPairRDD<Double, Integer> col1Key = inpFileTr.map(s -> s.split(",")).mapToPair(new KeyNormL1L2()).map(KV -> new Tuple2<>((int)((KV._1() - colMin[sortKeyIndex])/binWidth), 1) );
-      //JavaPairRDD<Double, Integer> colMark = inpFileTr.map(s -> s.split(",")).mapToPair(new MarkColumn());
-      JavaPairRDD<Integer, Integer> colMark = inpFileTr.map(s -> s.split(",")).mapToPair(new MarkColumn()).mapToPair(KV -> new Tuple2<>((int)((KV._1() - colMin[sortKeyIndex])/binWidth), 1) );
+      
+      JavaPairRDD<Integer, Integer> colMark = inpFileSA.mapToPair(new MarkColumn()).mapToPair(KV -> new Tuple2<>((int)((KV._1() - colMin[sortKeyIndex])/binWidth), 1) );
       
       JavaPairRDD<Double, Integer> histogram = colMark.reduceByKey((a,b) -> a + b).sortByKey().mapToPair(KV -> new Tuple2<>(KV._1()*binWidth + colMin[sortKeyIndex], KV._2()) );
       System.out.println("Histogram[" + sortKeyIndex + "]:\n" + histogram.take(numBins));
@@ -452,6 +451,7 @@ public final class Features
       JavaPairRDD<Double, Integer> modes = histogram.mapToPair(KV -> new Tuple2<>(KV._2(), KV._1()) ).sortByKey(false).mapToPair(KV -> new Tuple2<>(KV._2(), KV._1()) );
       System.out.println("Modes[" + sortKeyIndex + "]:\n" + modes.take(numBins));
       
+      inpFileSA.unpersist();
       
       numCols--; // remove "No Data"
       
